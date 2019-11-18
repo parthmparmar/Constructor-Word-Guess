@@ -1,7 +1,8 @@
 var Letter = require("./Letter.js")
-var arraytest = [];
-var displayWord = "";
+
+
 function Word(inputWord){
+    this.word = inputWord;
     this.wordArray = [];
     this.createWord = function(){
         inputWord.split("").forEach(element => {
@@ -10,6 +11,7 @@ function Word(inputWord){
     });
     };
     this.printString = function(){
+        var displayWord = "";
         this.wordArray.forEach(element => {
             displayWord = displayWord + element + " ";
         });
