@@ -7,6 +7,7 @@ function Word(inputWord){
     this.createWord = function(){
         inputWord.split("").forEach(element => {
         letter = new Letter(element);
+        letter.space();
         this.wordArray.push(letter);
     });
     };

@@ -18,4 +18,11 @@ Letter.prototype.toString = function(){
     };
 };
 
+Letter.prototype.space = function(){
+    if(this.character == " "){
+        this.guessed = true;
+    };
+};
+
+
 module.exports = Letter;
