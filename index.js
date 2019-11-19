@@ -1,6 +1,6 @@
 var inquirer = require("inquirer");
 var Word = require("./Word.js");
-var wordList = ["cat dog", "cat dog", "cat dog"];
+var wordList = ["eleven", "demogorgon", "hopper", "hawkins", "experiment", "laboratory","russian", "gate", "demodogs", "rats", "eggo"];;
 var counter = 0;
 var limit = 10;
 var wins = 0;
@@ -14,13 +14,15 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 };
 
-
+console.log("Word Guess Game - Stranger Things Edition")
+console.log("=========================================")
 function startup(){
     if (wins > 0 || losses > 0){
         console.log("Games Won: " + wins);
         console.log("Games lost: " + losses + "\n");
     };
     counter = 0;
+    guessedLetters = [];
     inquirer
     .prompt([
         {
@@ -31,9 +33,13 @@ function startup(){
         }
     ]).then(function(answer){
         if(answer.startOptions == "Play Game"){
-            var selectedWord = wordList[getRandom(0, wordList.length)];
+            var selectedWord = wordList[getRandom(0, 0)];
             var gameWord = new Word(selectedWord.toLowerCase());
             gameWord.createWord();
+            console.log("\n");
+            console.log(gameWord.printString());
+            standardPrint();
+            counter++;
             inputQuestion(gameWord);
         };
     });
